@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>osu!koko Options</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="center">
+  <center><img src="img/title2.png" alt="osu!koko options"></center>
+  <form action="popup.html">
+    <button type="submit">< Back</button>
+  </form>
+	<hr>
+<label>
+  <input type="checkbox" id="DwnEnbl">
+  <b>Enable downloads</b>
+</label>
+<br>
+<label>
+  <input type="checkbox" id="DwnBmVi" id="save">
+  Download beatmaps with videos
+</label>
+<br>
+<label>
+  <input type="checkbox" id="DwnCount">
+  Download counter <span id="DwnCountVal"></span> <button id="reset">Reset</button> <span id="resetstatus"></span>
+</label>
+<br>
+<label>
+  <input type="checkbox" id="pptc">
+  koko!tracker: <input type="text" name="" id="pptu" placeholder="osu! username" size="10">
+</label>
+<br>
+<label>
+  <input type="checkbox" id="shwame">
+  Show the warning message
+</label>
+<br>
+<label><small>Advanced:</small><br>
+  <input type="checkbox" id="debug">
+  <small>Console logs (debug)</small>
+</label>
+<div id="status"></div>
+<br>
+<button id="save">Save</button>
+<hr>
+<p><strong>TIP 1: Open beatmaps automatically </strong> <button id="dospoiler">Show how</button></p>
+<div id="spoiler" style="display:none">
+<label>
+	<p>Enable:</p>
+  <center><img src="img/t.png" alt="osu!koko tutorial"></center>
+</label>
+<br>
+<label>
+  <p>Disable: <a href="chrome://settings/downloads">(Open settings tab)</a></p>
+  <center><img src="img/t2.png" alt="osu!koko tutorial 2"></center>
+</label>
+</div>
+<p><strong>TIP 2: Save beatmaps automatically </strong> <button id="dospoiler2">Show how</button></p>
+<div id="spoiler2" style="display:none">
+<label>
+	<p>Enable/Disable: <a href="chrome://settings/downloads">(Open settings tab)</a></p>
+  <center><img src="img/t3.png" alt="osu!koko tutorial 3"></center>
+</label>
+</div>
+
+<br>
+</div>
+<script src="js/options.js"></script>
+</body>
+</html>
