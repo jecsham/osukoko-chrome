@@ -1,50 +1,49 @@
 //links works lul
-window.addEventListener('click',function(e){
-  if(e.target.href!==undefined){
-    chrome.tabs.create({url:e.target.href})
+window.addEventListener('click', function (e) {
+  if (e.target.href !== undefined) {
+    chrome.tabs.create({ url: e.target.href })
   }
 });
 // Saves options to chrome.storage
 function save_options() {
   save: {
 
-  var DwnEnbl = document.getElementById('DwnEnbl').checked;
-  var DwnBmVi = document.getElementById('DwnBmVi').checked;
-  var DwnCount = document.getElementById('DwnCount').checked;
-  var DwnCountVal = document.getElementById('DwnCountVal').checked;
-  var debug = document.getElementById('debug').checked;
-  var pptc = document.getElementById('pptc').checked;
-  var pptu = document.getElementById('pptu').value;
-  var shwame = document.getElementById('shwame').checked;
+    var DwnEnbl = document.getElementById('DwnEnbl').checked;
+    var DwnBmVi = document.getElementById('DwnBmVi').checked;
+    var DwnCount = document.getElementById('DwnCount').checked;
+    var DwnCountVal = document.getElementById('DwnCountVal').checked;
+    var debug = document.getElementById('debug').checked;
+    var pptc = document.getElementById('pptc').checked;
+    var pptu = document.getElementById('pptu').value;
+    var shwame = document.getElementById('shwame').checked;
 
-  if(pptc == true && pptu == ""){
+    if (pptc == true && pptu == "") {
       document.getElementById('pptu').style.backgroundColor = "pink";
       break save;
     }
 
-  chrome.storage.sync.set({
-    DwnEnbl: DwnEnbl,
-    DwnBmVi: DwnBmVi,
-    DwnCount: DwnCount,
-    debug: debug,
-    pptc: pptc,
-    pptu: pptu,
-    shwame: shwame
-  }, function() {
-    // Update status to let user know options were saved.
-    var status = document.getElementById('status');
+    chrome.storage.sync.set({
+      DwnEnbl: DwnEnbl,
+      DwnBmVi: DwnBmVi,
+      DwnCount: DwnCount,
+      debug: debug,
+      pptc: pptc,
+      pptu: pptu,
+      shwame: shwame
+    }, function () {
+      // Update status to let user know options were saved.
+      var status = document.getElementById('status');
       status.textContent = 'Options saved';
-    setTimeout(function() {
-      status.textContent = '';
-    }, 1750);
-  });
-}
+      setTimeout(function () {
+        status.textContent = '';
+      }, 1750);
+    });
+  }
 }
 
 // Restores checkboxs state using the preferences
 // stored in chrome.storage.
 function restore_options() {
-  // Use default value true, false, true, 0, false
   chrome.storage.sync.get({
     DwnEnbl: true,
     DwnBmVi: false,
@@ -54,11 +53,11 @@ function restore_options() {
     pptc: false,
     pptu: "",
     shwame: true
-  }, function(items) {
+  }, function (items) {
     document.getElementById('DwnEnbl').checked = items.DwnEnbl;
     document.getElementById('DwnBmVi').checked = items.DwnBmVi;
     document.getElementById('DwnCount').checked = items.DwnCount;
-    document.getElementById('DwnCountVal').textContent = "("+items.DwnCountVal+")";
+    document.getElementById('DwnCountVal').textContent = "(" + items.DwnCountVal + ")";
     document.getElementById('debug').checked = items.debug;
     document.getElementById('pptc').checked = items.pptc;
     document.getElementById('pptu').value = items.pptu;
@@ -68,39 +67,39 @@ function restore_options() {
 
 }
 //reset download counter val
-function reset(){
-	chrome.storage.sync.set({
+function reset() {
+  chrome.storage.sync.set({
     DwnCountVal: 0
-  }, function() {
+  }, function () {
     var status = document.getElementById('resetstatus');
     status.textContent = 'Reseted!';
-    setTimeout(function() {
+    setTimeout(function () {
       status.textContent = '';
     }, 1750);
   });
 }
 //show tip 1
-function spoiler(){
-	if(document.getElementById('spoiler').style.display=='none'){
-		document.getElementById('spoiler').style.display='';
-		document.getElementById('dospoiler').innerHTML='Hide';
-	}else{
-		document.getElementById('spoiler').style.display='none'
-		document.getElementById('dospoiler').innerHTML='Show how';
-	}
+function spoiler() {
+  if (document.getElementById('spoiler').style.display == 'none') {
+    document.getElementById('spoiler').style.display = '';
+    document.getElementById('dospoiler').innerHTML = 'Hide';
+  } else {
+    document.getElementById('spoiler').style.display = 'none'
+    document.getElementById('dospoiler').innerHTML = 'Show how';
+  }
 }
 //show tip 2
-function spoiler2(){
-	if(document.getElementById('spoiler2').style.display=='none'){
-		document.getElementById('spoiler2').style.display='';
-		document.getElementById('dospoiler2').innerHTML='Hide';
-	}else{
-		document.getElementById('spoiler2').style.display='none'
-		document.getElementById('dospoiler2').innerHTML='Show how';
-	}
+function spoiler2() {
+  if (document.getElementById('spoiler2').style.display == 'none') {
+    document.getElementById('spoiler2').style.display = '';
+    document.getElementById('dospoiler2').innerHTML = 'Hide';
+  } else {
+    document.getElementById('spoiler2').style.display = 'none'
+    document.getElementById('dospoiler2').innerHTML = 'Show how';
+  }
 }
 //white bg
-function whitebg(){
+function whitebg() {
   document.getElementById('pptu').style.backgroundColor = "transparent";
 
 }
@@ -108,14 +107,14 @@ function whitebg(){
 //eventListeners
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('save').addEventListener('click',
-    save_options);
+  save_options);
 document.getElementById('reset').addEventListener('click',
-    reset);
+  reset);
 document.getElementById('dospoiler').addEventListener('click',
-    spoiler);
+  spoiler);
 document.getElementById('dospoiler2').addEventListener('click',
-    spoiler2);
+  spoiler2);
 document.getElementById('pptu').addEventListener('click',
-    whitebg);
+  whitebg);
 
 
