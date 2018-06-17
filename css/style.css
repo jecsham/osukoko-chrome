@@ -1,0 +1,124 @@
+
+
+body {		
+	width: auto;
+	height: auto;
+	overflow-x: hidden;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.navbar { margin-bottom: 2px; }
+
+.morenum {
+  color: darkgreen;
+}
+.lessnum {
+  color: darkred;
+}
+
+.alert{
+	padding:15px;
+	margin-bottom:20px;
+	border:1px solid transparent;
+	border-radius:4px
+}
+.alert-warning{
+	background-color:#fcf8e3;
+	border-color:#faebcc;
+	color:#8a6d3b
+}
+
+.o-saved{
+	background-color: #B3EAC8;
+}
+
+hr {
+  margin-top:20px;
+  margin-bottom:20px;
+  border:0;
+  border-top:1px solid #eee
+}
+button, .a {
+  -webkit-border-radius: 7;
+  -moz-border-radius: 7;
+  border-radius: 7px;
+  color: #000000;
+  background: #ebebeb;
+  padding: 1px 5px 1px 5px;
+  border: solid #e0e0e0 2px;
+  text-decoration: none;
+  font-size: 100%;
+}
+
+button:hover, .a:hover {
+  background: #bababa;
+  text-decoration: none;
+  cursor: default;
+}
+button:active, .a:active {
+	position:relative;
+	top:1px;
+}
+button:focus, .a:focus {
+  outline:0;
+}
+
+/* Scroll Bar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); }
+::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb:window-inactive  { background: pink; }
+
+.loading-ani {
+  border: 2px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 2px solid #FFC0CB;
+  width: 10px;
+  height: 10px;
+  -webkit-animation: spin 0.3s linear infinite; /* Safari */
+  animation: spin 0.3s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+
+
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+input {
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  padding: 1px 5px;
+  border: 2px solid #e0e0e0;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+  color: rgba(0,0,0,1);
+  -o-text-overflow: clip;
+  text-overflow: clip;
+}
+input:focus {
+  outline:0;
+}
