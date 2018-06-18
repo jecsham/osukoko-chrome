@@ -183,6 +183,7 @@ function moreless(num) {
 
 }
 function toNum(num) {
+  num = parseFloat(num).toFixed(2);
   return Number(num).toLocaleString('en');
 }
 

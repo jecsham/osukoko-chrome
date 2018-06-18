@@ -1,6 +1,6 @@
 {
   "name": "osu! koko",
-  "version": "2.5.3",
+  "version": "2.5.4",
   "description": "osu! koko download beatmaps automatically!",
   "author":"Jecsham",
 
@@ -28,10 +28,7 @@
   },
   "permissions": [
     "tabs",
-    "activeTab",
     "storage",
-    "downloads",
-    "alarms",
     "http://osu-api.kokoservices.rf.gd/osuapi/*"
   ]
 }
