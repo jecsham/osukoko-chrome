@@ -3,12 +3,12 @@ var DwnBmVi;
 var DwnCount;
 var DwnCountVal;
 var DEBUG;
-chrome.storage.sync.get([
-	'DwnEnbl',
-	'DwnBmVi',
-	'DwnCount',
-	'DwnCountVal',
-	'debug'], function (result) {
+chrome.storage.sync.get({
+	DwnEnbl: true,
+	DwnBmVi: false,
+	DwnCount: true,
+	DwnCountVal: 0,
+	debug: false}, function (result) {
 		DwnEnbl = result.DwnEnbl;
 		DwnBmVi = result.DwnBmVi;
 		DwnCount = result.DwnCount;
