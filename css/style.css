@@ -1,8 +1,5 @@
 body {
-  width: auto;
-  height: auto;
-  overflow-x: hidden;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif !important;
 }
 
 .navbar {
