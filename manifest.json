@@ -1,15 +1,14 @@
 {
   "name": "osu! koko",
-  "version": "2.5.7",
-  "description": "osu! koko download beatmaps automatically!",
-  "author":"Jecsham",
-
-   "manifest_version": 2,
+  "version": "2.6",
+  "description": "osu! koko download beatmaps automatically! (Now working in old site!)",
+  "author": "Jecsham",
+  "manifest_version": 2,
   "icons": {
-     "16": "img/icon16.png",
-     "48": "img/icon48.png",
-     "128": "img/icon128.png"
-            },
+    "16": "img/icon16.png",
+    "48": "img/icon48.png",
+    "128": "img/icon128.png"
+  },
   "browser_action": {
     "default_title": "Open osu! koko",
     "default_icon": "img/icon128.png",
@@ -18,10 +17,19 @@
   "options_page": "options.html",
   "content_scripts": [
     {
-      "matches": ["https://osu.ppy.sh/beatmapsets/*"],
-      "js": ["js/content.js"]
-  }
-],
+      "matches": [
+        "https://osu.ppy.sh/beatmapsets/*",
+        "https://osu.ppy.sh/s/*",
+        "https://osu.ppy.sh/b/*"
+      ],
+      "css": [
+        "css/dom-style.css"
+      ],
+      "js": [
+        "js/content.js"
+      ]
+    }
+  ],
   "permissions": [
     "tabs",
     "storage",

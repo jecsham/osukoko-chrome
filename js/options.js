@@ -11,7 +11,6 @@ function save_options() {
     var DwnEnbl = document.getElementById('DwnEnbl').checked;
     var DwnBmVi = document.getElementById('DwnBmVi').checked;
     var DwnCount = document.getElementById('DwnCount').checked;
-    var DwnCountVal = document.getElementById('DwnCountVal').checked;
     var debug = document.getElementById('debug').checked;
     var pptc = document.getElementById('pptc').checked;
     var pptu = document.getElementById('pptu').value;

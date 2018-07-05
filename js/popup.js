@@ -35,7 +35,6 @@ function publicateWame() {
     '<ol>' +
     '<li>This is NOT an official osu! extension.</li>' +
     '<li>Keep in mind that osu! has a formidable feature to download beatmaps for those who <a href="https://osu.ppy.sh/store/listing"> buy the osu! suppoerter tag.</a></li>' +
-    '<li><strong>osu!koko</strong> DONT work with the old site style.</li>' +
     '</ol></div>';
 }
 
@@ -44,32 +43,32 @@ function publicateWame() {
  * koko!tracker beta Algorithm
  * 
  */
-var pposuplus;
-var pposurankplus;
-var pposucrankplus;
-var pptaikoplus;
-var pptaikorankplus;
-var pptaikocrankplus;
-var ppcatchplus;
-var ppcatchrankplus;
-var ppcatchcrankplus;
-var ppmaniaplus;
-var ppmaniarankplus;
-var ppmaniacrankplus;
-var pposu;
-var pptaiko;
-var ppcatch;
-var ppmania;
-var pposurank;
-var pposucrank;
-var pptaikorank;
-var pptaikocrank;
-var ppcatchrank;
-var ppcatchcrank;
-var ppmaniarank;
-var ppmaniacrank;
-var pptu;
-var lastUpdateTable;
+var pposuplus = null;
+var pposurankplus = null;
+var pposucrankplus = null;
+var pptaikoplus = null;
+var pptaikorankplus = null;
+var pptaikocrankplus = null;
+var ppcatchplus = null;
+var ppcatchrankplus = null;
+var ppcatchcrankplus = null;
+var ppmaniaplus = null;
+var ppmaniarankplus = null;
+var ppmaniacrankplus = null;
+var pposu = null;
+var pptaiko = null;
+var ppcatch = null;
+var ppmania = null;
+var pposurank = null;
+var pposucrank = null;
+var pptaikorank = null;
+var pptaikocrank = null;
+var ppcatchrank = null;
+var ppcatchcrank = null;
+var ppmaniarank = null;
+var ppmaniacrank = null;
+var pptu = null;
+var lastUpdateTable = null;
 chrome.storage.sync.get({
   pptc: false,
   pptu: "",
@@ -265,7 +264,7 @@ function apiRequest() {
     publicateTable();
   };
   var data = pptu;
-  xhr.open('GET', 'http://osu-api.kokoservices.rf.gd/osuapi/getuserdata.php?osuname=' + encodeURIComponent(data)); //request slow and limited 1 per sec by IP (server side)
+  xhr.open('GET', 'http://osu-api.kokoservices.rf.gd/osuapi/getuserdata.php?osuname=' + encodeURIComponent(data)+'&i=1');
   xhr.send();
 
 }
