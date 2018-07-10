@@ -136,7 +136,7 @@ chrome.storage.sync.get({
   }
 });
 function publicateTable() {
-  document.getElementById('kokooverview').innerHTML = "<a href = 'https://osu.ppy.sh/users/" + pptu + "'>" + pptu + "'s</a> overview";
+  document.getElementById('kokooverview').innerHTML = "<a href = 'https://osu.ppy.sh/users/" + pptu + "'>" + pptu + "</a>";
   document.getElementById('pptable').innerHTML = "<table>" +
     "<tr><th>Mode</th>" +
     "<th>pp</th>" +
@@ -197,8 +197,8 @@ function toNum(num) {
 }
 /**
  * 
- * API Request to http://osu-api.kokoservices.rf.gd
- * (temp URL request)
+ * API Request to https://osu-koko.herokuapp.com/
+ * 
  * 
  */
 function apiRequest() {
@@ -264,7 +264,7 @@ function apiRequest() {
     publicateTable();
   };
   var data = pptu;
-  xhr.open('GET', 'http://osu-api.kokoservices.rf.gd/osuapi/getuserdata.php?osuname=' + encodeURIComponent(data)+'&i=1');
+  xhr.open('GET', 'https://osu-koko.herokuapp.com/osuapi?u=' + encodeURIComponent(data)); //1 request per sec by ip 
   xhr.send();
 
 }
