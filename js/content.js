@@ -79,7 +79,7 @@ chrome.storage.sync.get({
 
 			} else {
 				log("Account is not logged in");
-				launchModal("Automatic download can't start because user isn't logged in :(");
+				launchModal("Automatic download can't start because user isn't logged in :(<br>Press F5 when you have logged in");
 			}
 
 		}
@@ -89,17 +89,23 @@ chrome.storage.sync.get({
 		log("Downloads disabled, according to the user configuration")
 	}
 });
+/**
+ * 
+ * Functions
+ * 
+ */
+
 //Check if user is logged in
 function isLoggedIn(oldStyle) {
 	if (oldStyle) {
-		if (document.getElementsByClassName("beatmapDownloadButton").length > 0) {
+		if (document.getElementsByClassName("mini-avatar").length > 0) {
 			return true;
 		} else {
 			return false;
 		}
 
 	} else {
-		if (document.getElementsByClassName("btn-osu-big btn-osu-big--beatmapset-header js-beatmapset-download-link").length > 0) {
+		if (document.getElementsByClassName("notification-icon__count").length > 0) {
 			return true;
 		} else {
 			return false;
@@ -107,6 +113,7 @@ function isLoggedIn(oldStyle) {
 	}
 
 }
+
 //check if is a beatmap page or beatmap index page
 function isIndexBeatmapPage(oldsite) {
 	if((oldsite == false) && (document.getElementsByClassName("osu-page osu-page--beatmapsets-search-header").length > 0)){
@@ -126,12 +133,6 @@ function isOldStyle() {
 	}
 }
 
-/**
- * 
- * Functions
- * 
- */
-
 function increaseDowloadCounter(isEnabled) {
 	if (isEnabled) {
 		DwnCountVal = DwnCountVal + 1;
@@ -143,9 +144,12 @@ function increaseDowloadCounter(isEnabled) {
 	}
 
 }
+//console log
 function log(message) {
 	console.log("osu! koko: " + message);
 }
+
+//error modal
 function launchModal(message) {
 	log("Modal running");
 	div = document.createElement('div');

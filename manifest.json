@@ -1,6 +1,6 @@
 {
   "name": "osu! koko",
-  "version": "2.6.2",
+  "version": "2.6.3",
   "description": "osu! koko download beatmaps automatically! (Now working in old site!)",
   "author": "Jecsham",
   "manifest_version": 2,
@@ -17,6 +17,7 @@
   "options_page": "options.html",
   "content_scripts": [
     {
+      "run_at": "document_end",
       "matches": [
         "https://osu.ppy.sh/beatmapsets/*",
         "https://osu.ppy.sh/s/*",

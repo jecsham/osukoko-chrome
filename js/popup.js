@@ -173,7 +173,7 @@ function lastUpdateTablef() {
         return hours + " hour(s) ago";
       }else{
           var days = parseInt(timeago / (1000 * 60 * 60 * 24 ));
-          return days + "day(s) ago";
+          return days + " day(s) ago";
       }
     }
   }
