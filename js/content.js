@@ -1,15 +1,21 @@
 /**
  * 
  * Content Script
+ * File from osu! koko extension
  * 
  */
-var DwnEnbl = null;
-var DwnBmVi = null;
-var DwnCount = null;
-var DwnCountVal = null;
-var DEBUG = null;
-var oldStyle = null;
+
+//config vars
+var config = {
+	download_enabled: null,
+	download_video: null,
+	download_count: null,
+	download_count_val: null,
+	DEBUG: null
+};
+
 var dlLink = null;
+var is_old_style = null;
 
 //Get user config
 chrome.storage.sync.get({
@@ -19,36 +25,36 @@ chrome.storage.sync.get({
 	DwnCountVal: 0,
 	debug: false
 }, function (result) {
-	DwnEnbl = result.DwnEnbl;
-	DwnBmVi = result.DwnBmVi;
-	DwnCount = result.DwnCount;
-	DwnCountVal = result.DwnCountVal;
-	DEBUG = result.debug;
+	config.download_enabled = result.DwnEnbl;
+	config.download_video = result.DwnBmVi;
+	config.download_count = result.DwnCount;
+	config.download_count_val = result.DwnCountVal;
+	config.DEBUG = result.debug;
 
 	//Enable/disable console logs
-	if (!DEBUG) {
+	if (!config.DEBUG) {
 		console.log = function () { }
 	}
 	//If Enable download option is checked
-	if (DwnEnbl) {
+	if (config.download_enabled) {
 		download_process: {
 			log("Logs enabled!");
-			oldStyle = isOldStyle();
-			if (isIndexBeatmapPage(oldStyle)) {
+			is_old_style = isOldStyle();
+			if (isIndexBeatmapPage(is_old_style)) {
 				log("Is index page. Download process break");
 				break download_process;
 			}
 			//If user is logged in
-			if (isLoggedIn(oldStyle)) {
+			if (isLoggedIn(is_old_style)) {
 				log("Account is logged in");
 				//Compare site style
-				if (oldStyle) {
+				if (is_old_style) {
 					//Old site event
 					log("Style: old style");
 					//Get href attribute of download button by class
 					dlLink = document.getElementsByClassName("beatmap_download_link")[0].href;
 					//If Download with video option is enabled
-					if (DwnBmVi) {
+					if (config.download_video) {
 						window.open(dlLink);
 						log("Download start with video, according to the user configuration");
 						log("Download link: " + dlLink);
@@ -63,7 +69,7 @@ chrome.storage.sync.get({
 					log("Style: new style");
 					//Get href attribute of download button by class
 					dlLink = document.getElementsByClassName("btn-osu-big btn-osu-big--beatmapset-header js-beatmapset-download-link")[0].href;
-					if (DwnBmVi) {
+					if (config.download_video) {
 						window.open(dlLink);
 						log("Download start with video, according to the user configuration");
 						log("Download link: " + dlLink);
@@ -75,7 +81,7 @@ chrome.storage.sync.get({
 					}
 				}
 				//Downloads counter function
-				increaseDowloadCounter(DwnCount);
+				increaseDowloadCounter(config.download_count);
 
 			} else {
 				log("Account is not logged in");
@@ -97,7 +103,7 @@ chrome.storage.sync.get({
 
 //Check if user is logged in
 function isLoggedIn(oldStyle) {
-	if (oldStyle) {
+	if (is_old_style) {
 		if (document.getElementsByClassName("mini-avatar").length > 0) {
 			return true;
 		} else {
@@ -116,12 +122,12 @@ function isLoggedIn(oldStyle) {
 
 //check if is a beatmap page or beatmap index page
 function isIndexBeatmapPage(oldsite) {
-	if((oldsite == false) && (document.getElementsByClassName("osu-page osu-page--beatmapsets-search-header").length > 0)){
+	if ((oldsite == false) && (document.getElementsByClassName("osu-page osu-page--beatmapsets-search-header").length > 0)) {
 		return true;
-	}else{
+	} else {
 		return false;
 	}
-	
+
 }
 //Check the user site type
 function isOldStyle() {
@@ -135,11 +141,11 @@ function isOldStyle() {
 
 function increaseDowloadCounter(isEnabled) {
 	if (isEnabled) {
-		DwnCountVal = DwnCountVal + 1;
+		config.download_count_val = config.download_count_val + 1;
 		chrome.storage.sync.set({
-			DwnCountVal: DwnCountVal
+			DwnCountVal: config.download_count_val
 		}, function () {
-			log("Download count increment to " + DwnCountVal);
+			log("Download count increment to " + config.download_count_val);
 		});
 	}
 
@@ -149,7 +155,7 @@ function log(message) {
 	console.log("osu! koko: " + message);
 }
 
-//error modal
+//modal
 function launchModal(message) {
 	log("Modal running");
 	div = document.createElement('div');

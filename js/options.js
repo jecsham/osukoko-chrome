@@ -72,6 +72,8 @@ function reset() {
   }, function () {
     var status = document.getElementById('resetstatus');
     status.textContent = 'Reseted!';
+    var dCounter = document.getElementById('DwnCountVal');
+    dCounter.textContent = '(0)';
     setTimeout(function () {
       status.textContent = '';
     }, 1750);
