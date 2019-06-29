@@ -17,8 +17,10 @@ function save_options() {
     var shwame = document.getElementById('shwame').checked;
 
     if (pptc == true && pptu == "") {
-      document.getElementById('pptu').style.backgroundColor = "pink";
+      document.getElementById('pptu').classList.toggle("is-invalid");
       break save;
+    } else {
+      whitebg();
     }
 
     chrome.storage.sync.set({
@@ -101,7 +103,7 @@ function spoiler2() {
 }
 //white bg
 function whitebg() {
-  document.getElementById('pptu').style.backgroundColor = "transparent";
+  document.getElementById('pptu').classList.remove("is-invalid");
 
 }
 
