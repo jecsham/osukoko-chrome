@@ -1,11 +1,11 @@
 {
   "name": "osukoko-chrome",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "osu! koko download beatmaps automatically! (Now working in old site!)",
   "main": "index.js",
   "scripts": {
     "build": "rm -rf dist && mkdir dist && jszip-cli -c .jsziprc.json",
-    "upload": "npm run build && ./scripts/upload.sh",
+    "publish": "npm run build && sh ./scripts/upload.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
