@@ -4,16 +4,17 @@
 <head>
 	<meta charset="utf-8">
 	<title>osu! koko popup</title>
-	<link href="css/style.css" rel="stylesheet" media="screen">
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
 
 <body>
-
-	<center>
-		<img src="img/logo.png" class="img-rounded" alt="Yup">
-		<hr>
-
-		<h3>
+	<nav class="navbar navbar-light bg-light">
+		<a class="navbar-brand" href="#">
+			<img src="img/logo.png" alt="logo">
+		</a>
+	</nav>
+	<div class="container-fluid mt-2">
+		<h3 class="text-center">
 			<div id="kokooverview">Overview</div>
 		</h3>
 		<div id="pptable">
@@ -26,33 +27,27 @@
 			</strong>
 		</p>
 		<hr>
-		<form action="options.html">
-			<p>
-				<button type="submit">Options</button>
-			</p>
+		<form action="options.html" class="text-center">
+			<button class="btn btn-sm btn-light" type="submit">Options</button>
 		</form>
-		<p>
-			<a class="a" href="chrome://settings/downloads">Open download settings tab</a>
-		</p>
-		<p>
-			<a class="a" href="koko-chan.html">Koko-chan page ❤︎</a>
-		</p>
-	</center>
-	<hr>
-	<div id="shwame">
-	</div>
-	<center>
-		<small>
+		<div class="text-center">
+			<a class="btn btn-sm btn btn-light mt-1" href="chrome://settings/downloads">Open download settings tab</a>
+		</div>
+		<hr>
+		<div id="shwame">
+		</div>
+		<p class="small text-center">
 			Create by
 			<a href="https://osu.ppy.sh/users/8354773">Jecsham</a>
 			<br>
 			<a href="https://paypal.me/jecsham">Support me</a> |
 			<a href="https://github.com/jecsham/osukoko-chrome">Github</a> |
 			<a href="https://github.com/jecsham/osukoko-chrome/issues/new?template=bug_report.md">Report bug</a> |
-			<a href="https://github.com/jecsham/osukoko-chrome/issues/new?template=feature_request.md">Request feature</a>
-			<div id="ver"></div>
-		</small>
-	</center>
+			<a href="https://github.com/jecsham/osukoko-chrome/issues/new?template=feature_request.md">Request
+				feature</a>
+			<div class="small text-center" id="ver"></div>
+		</p>
+	</div>
 	<script src="js/popup.js"></script>
 </body>
 
