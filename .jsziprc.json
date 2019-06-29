@@ -1,0 +1,10 @@
+{
+    "compressionLevel": 9,
+    "entries": [
+      "src",
+      "LICENSE",
+      "manifest.json"
+    ],
+    "mode": "add",
+    "outputEntry": "dist/osu-koko.zip"
+  }
