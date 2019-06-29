@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf dist && mkdir dist && jszip-cli -c .jsziprc.json",
-    "upload": "npm run build && ./scripts/upload.sh",
+    "publish": "npm run build && sh ./scripts/upload.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
