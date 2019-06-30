@@ -99,7 +99,7 @@ chrome.storage.sync.get({
   lastUpdateTable: 0
 }, function (items) {
   pptu = items.pptu;
-  if (items.pptc) {
+  if (false) { // (items.pptc) {
     if (items.pposu == false && items.pptaiko == false && items.ppcatch == false && items.ppmania == false) {
       apiRequest();
     } else {
@@ -137,7 +137,7 @@ chrome.storage.sync.get({
 });
 function publicateTable() {
   document.getElementById('kokooverview').innerHTML = "<a href = 'https://osu.ppy.sh/users/" + pptu + "'>" + pptu + "</a>";
-  document.getElementById('pptable').innerHTML = "<table>" +
+  document.getElementById('pptable').innerHTML = "<table class='table'>" +
     "<tr><th>Mode</th>" +
     "<th>pp</th>" +
     "<th>Rank (World - Country)</th>" +
