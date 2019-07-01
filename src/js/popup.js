@@ -99,7 +99,7 @@ chrome.storage.sync.get({
   lastUpdateTable: 0
 }, function (items) {
   pptu = items.pptu;
-  if (false) { // (items.pptc) {
+  if (items.pptc) {
     if (items.pposu == false && items.pptaiko == false && items.ppcatch == false && items.ppmania == false) {
       apiRequest();
     } else {
@@ -136,8 +136,8 @@ chrome.storage.sync.get({
   }
 });
 function publicateTable() {
-  document.getElementById('kokooverview').innerHTML = "<a href = 'https://osu.ppy.sh/users/" + pptu + "'>" + pptu + "</a>";
-  document.getElementById('pptable').innerHTML = "<table class='table'>" +
+  document.getElementById('kokooverview').innerHTML = "<a class='text-dark' href = 'https://osu.ppy.sh/users/" + pptu + "'>" + pptu + "</a>";
+  document.getElementById('pptable').innerHTML = " <div class='table-responsive'><table class='table table-sm small text-center'>" +
     "<tr><th>Mode</th>" +
     "<th>pp</th>" +
     "<th>Rank (World - Country)</th>" +
@@ -145,14 +145,22 @@ function publicateTable() {
     "<tr><td>standard</td><td>" + toNum(pposu) + moreless(pposuplus) + "</td><td>" + toNum(pposurank) + moreless(pposurankplus) + "<strong> - </strong>" + toNum(pposucrank) + moreless(pposucrankplus) + "</td></tr>" +
     "<tr><td>taiko</td><td>" + toNum(pptaiko) + moreless(pptaikoplus) + "</td><td>" + toNum(pptaikorank) + moreless(pptaikorankplus) + "<strong> - </strong>" + toNum(pptaikocrank) + moreless(pptaikocrankplus) + "</td></tr>" +
     "<tr><td>catch</td><td>" + toNum(ppcatch) + moreless(ppcatchplus) + "</td><td>" + toNum(ppcatchrank) + moreless(ppcatchrankplus) + "<strong> - </strong>" + toNum(ppcatchcrank) + moreless(ppcatchcrankplus) + "</td></tr>" +
-    "<tr><td>mania</td><td>" + toNum(ppmania) + moreless(ppmaniaplus) + "</td><td>" + toNum(ppmaniarank) + moreless(ppmaniarankplus) + "<strong> - </strong>" + toNum(ppmaniacrank) + moreless(ppmaniacrankplus) + "</td></tr></table>" +
-    "<p><small>Last update: " + lastUpdateTablef() + "</small></p>" +
-    "<p><button type='button' id='updt'>Update data</button></p>";
+    "<tr><td>mania</td><td>" + toNum(ppmania) + moreless(ppmaniaplus) + "</td><td>" + toNum(ppmaniarank) + moreless(ppmaniarankplus) + "<strong> - </strong>" + toNum(ppmaniacrank) + moreless(ppmaniacrankplus) + "</td></tr></table></div>" +
+    "<p class='text-center'><small>Last update: " + lastUpdateTablef() + "</small></p>" +
+    "<p class='text-center'><button type='button' class='btn btn-sm btn-light' id='updt'>Update data</button></p>";
   document.getElementById('updt').addEventListener('click',
     updateTable);
 }
 function updateTable() {
-  document.getElementById('pptable').innerHTML = "<div class='loading-ani'></div>";
+  document.getElementById('pptable').innerHTML = `<div class="spinner-grow spinner-grow-sm text-dark" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-grow spinner-grow-sm text-dark" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="spinner-grow spinner-grow-sm text-dark" role="status">
+  <span class="sr-only">Loading...</span>
+</div>`;
   apiRequest();
 }
 //Time Ago temp algorithm
@@ -171,9 +179,9 @@ function lastUpdateTablef() {
       if (timeago < 86400000) {
         var hours = parseInt((timeago / (1000 * 60 * 60)) % 24);
         return hours + " hour(s) ago";
-      }else{
-          var days = parseInt(timeago / (1000 * 60 * 60 * 24 ));
-          return days + " day(s) ago";
+      } else {
+        var days = parseInt(timeago / (1000 * 60 * 60 * 24));
+        return days + " day(s) ago";
       }
     }
   }
@@ -181,10 +189,10 @@ function lastUpdateTablef() {
 
 function moreless(num) {
   if (num > 0) {
-    return "(<i class='morenum'>+" + toNum(num) + "</i>)";
+    return "(<i class='text-success'>+" + toNum(num) + "</i>)";
   } else {
     if (num < 0) {
-      return "(<i class='lessnum'>" + toNum(num) + "</i>)";
+      return "(<i class='text-danger'>" + toNum(num) + "</i>)";
     } else {
       return "";
     }
