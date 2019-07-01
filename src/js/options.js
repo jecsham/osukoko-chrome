@@ -28,7 +28,7 @@ function save_options() {
       DwnBmVi: DwnBmVi,
       DwnCount: DwnCount,
       debug: debug,
-      pptc: false, // pptc,
+      pptc: pptc,
       pptu: pptu,
       shwame: shwame
     }, function () {
@@ -60,7 +60,7 @@ function restore_options() {
     document.getElementById('DwnCount').checked = items.DwnCount;
     document.getElementById('DwnCountVal').textContent = "(" + items.DwnCountVal + ")";
     document.getElementById('debug').checked = items.debug;
-    document.getElementById('pptc').checked = false; // items.pptc;
+    document.getElementById('pptc').checked = items.pptc;
     document.getElementById('pptu').value = items.pptu;
     document.getElementById('shwame').checked = items.shwame;
   });
