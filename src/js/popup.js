@@ -272,7 +272,7 @@ function apiRequest() {
     publicateTable();
   };
   var data = pptu;
-  xhr.open('GET', 'https://osu-koko.herokuapp.com/osuapi?u=' + encodeURIComponent(data)); //1 request per sec by ip 
+  xhr.open('GET', 'https://osukoko-api-proxy-service.jecsham.com/osuapi?u=' + encodeURIComponent(data)); //1 request per sec by ip 
   xhr.send();
 
 }
