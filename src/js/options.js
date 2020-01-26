@@ -15,6 +15,7 @@ function save_options() {
     var pptc = document.getElementById('pptc').checked;
     var pptu = document.getElementById('pptu').value;
     var shwame = document.getElementById('shwame').checked;
+    var shrame = document.getElementById('shrame').checked;
 
     if (pptc == true && pptu == "") {
       document.getElementById('pptu').classList.toggle("is-invalid");
@@ -30,7 +31,8 @@ function save_options() {
       debug: debug,
       pptc: pptc,
       pptu: pptu,
-      shwame: shwame
+      shwame: shwame,
+      shrame: shrame
     }, function () {
       // Update status to let user know options were saved.
       var status = document.getElementById('status');
@@ -53,7 +55,8 @@ function restore_options() {
     debug: false,
     pptc: false,
     pptu: "",
-    shwame: true
+    shwame: true,
+    shrame: true,
   }, function (items) {
     document.getElementById('DwnEnbl').checked = items.DwnEnbl;
     document.getElementById('DwnBmVi').checked = items.DwnBmVi;
@@ -63,6 +66,7 @@ function restore_options() {
     document.getElementById('pptc').checked = items.pptc;
     document.getElementById('pptu').value = items.pptu;
     document.getElementById('shwame').checked = items.shwame;
+    document.getElementById('shrame').checked = items.shrame;
   });
 
 
