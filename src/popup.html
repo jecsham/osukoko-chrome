@@ -15,33 +15,67 @@
 		</a>
 	</nav>
 	<div class="container-fluid mt-2">
-		<div id="shrame"></div>
-		<h3 class="text-center">
-			<div id="kokooverview">Overview</div>
-		</h3>
-		<div class="text-center table-pptable" id="pptable">
-			<div class="spinner-grow spinner-grow-sm text-dark" role="status">
-				<span class="sr-only">Loading...</span>
-			</div>
-			<div class="spinner-grow spinner-grow-sm text-dark" role="status">
-				<span class="sr-only">Loading...</span>
-			</div>
-			<div class="spinner-grow spinner-grow-sm text-dark" role="status">
-				<span class="sr-only">Loading...</span>
-			</div>
+		<div class="alert alert-warning"><strong>You should know the following:</strong>
+			<ol>
+				<li>This is NOT an official osu! extension.</li>
+				<li>Keep in mind that the best way to download beatmaps is with the <a
+						href="https://osu.ppy.sh/store/listing">osu suporter tag</a></li>
+			</ol>
 		</div>
-		<strong>
-			<div class="text-center" id="DwnCountValpopup"></div>
-		</strong>
+		<h3 class="text-center">Options</h3>
+		<small class="mt-3">Downloads:</small>
+		<div class="custom-control custom-checkbox">
+			<input type="checkbox" class="custom-control-input" id="DwnEnbl">
+			<label class="custom-control-label font-weight-bold" for="DwnEnbl">Enable downloads</label>
+		</div>
+
+		<div class="custom-control custom-checkbox">
+			<input type="checkbox" class="custom-control-input" id="DwnBmVi">
+			<label class="custom-control-label" for="DwnBmVi">Download with video if available</label>
+		</div>
+		<small class="mt-3">Advanced:</small>
+		<div class="custom-control custom-checkbox">
+			<input type="checkbox" class="custom-control-input" id="debug">
+			<label class="custom-control-label" for="debug">Console logs (debug)</label>
+		</div>
+		<h3 class="text-center mt-3">Tips</h3>
+		<p>How to open beatmaps automatically
+			<button id="dospoiler" class="btn btn-sm btn-light">Show</button>
+		</p>
+		<div id="spoiler" style="display:none">
+			<label>
+				<p>Enable:</p>
+				<img src="img/t.png" alt="osu!koko tutorial">
+			</label>
+			<br>
+			<label>
+				<p>Disable:
+					<a href="chrome://settings/downloads">(Open settings tab)</a>
+				</p>
+				<img src="img/t2.png" alt="osu!koko tutorial 2">
+			</label>
+		</div>
+		<p>
+			How to save beatmaps automatically
+			<button id="dospoiler2" class="btn btn-sm btn-light">Show</button>
+		</p>
+		<div id="spoiler2" style="display:none">
+			<label>
+				<p>Enable/Disable:
+					<a href="chrome://settings/downloads">(Open settings tab)</a>
+				</p>
+				<img src="img/t3.png" alt="osu!koko tutorial 3">
+			</label>
+		</div>
+
+
 		<hr>
-		<form action="options.html" class="text-center">
-			<button class="btn btn-sm btn-light" type="submit">Options</button>
-		</form>
 		<div class="text-center">
-			<a class="btn btn-sm btn btn-light mt-1" href="chrome://settings/downloads">Open download settings tab</a>
-		</div>
-		<hr>
-		<div id="shwame">
+			<small>
+				Do you like this extension? <a
+					href="https://chrome.google.com/webstore/detail/osu-koko/ofcdlcjfjpjjmojphhjlkeamdeagnjjp?utm_source=chrome-ntp-icon">Please
+					rate!</a>
+			</small>
 		</div>
 		<p class="small text-center">
 			Create by
@@ -52,7 +86,7 @@
 			<a href="https://github.com/jecsham/osukoko-chrome/issues/new?template=bug_report.md">Report bug</a> |
 			<a href="https://github.com/jecsham/osukoko-chrome/issues/new?template=feature_request.md">Request
 				feature</a>
-			<div class="small text-center" id="ver"></div>
+		<div class="small text-center" id="ver"></div>
 		</p>
 	</div>
 	<script src="js/popup.js"></script>
