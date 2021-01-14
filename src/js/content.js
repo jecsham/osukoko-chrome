@@ -94,7 +94,7 @@ function main() {
 
 				} else {
 					log("Account is not logged in");
-					launchModal("Automatic download can't start because user isn't logged in :(<br>Press F5 when you have logged in");
+					launchModal("User is not logged in! <br> You need to be logged in to download beatmaps.");
 				}
 
 			}
@@ -112,7 +112,7 @@ function main() {
 
 	//Check if user is logged in
 	let isLoggedIn = function (oldStyle) {
-		if (is_old_style) {
+		if (oldStyle) {
 			if (document.getElementsByClassName("mini-avatar").length > 0) {
 				return true;
 			} else {
@@ -172,10 +172,10 @@ function main() {
 		div.innerHTML = '<div id="myModal" class="modal">' +
 			'<div class="modal-content">' +
 			'<div class="modal-header">' +
-			'<h2>Koko-chan:</h2>' +
+			'<h2>osu! koko extension:</h2>' +
 			'</div>' +
 			'<div class="modal-body">' +
-			'<p>' + message + '</p>' +
+			'<p style="color: #121415;">' + message + '</p>' +
 			'</div>' +
 			'</div>' +
 			'</div>';
