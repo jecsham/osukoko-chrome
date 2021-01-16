@@ -32,7 +32,6 @@
   ],
   "permissions": [
     "tabs",
-    "storage",
-    "https://osu-koko.herokuapp.com/*"
+    "storage"
   ]
 }
