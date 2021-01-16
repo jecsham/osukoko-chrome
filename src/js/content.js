@@ -15,7 +15,7 @@ function main() {
 	};
 
 	var dlLink = null;
-	var is_old_style = null;
+	var isOldStyleValue = null;
 
 	//Get user config
 	chrome.storage.sync.get({
@@ -39,16 +39,16 @@ function main() {
 		if (config.download_enabled) {
 			download_process: {
 				log("Logs enabled!");
-				is_old_style = isOldStyle();
-				if (isIndexBeatmapPage(is_old_style)) {
+				isOldStyleValue = isOldStyle();
+				if (isIndexBeatmapPage(isOldStyleValue)) {
 					log("Is index page. Download process break");
 					break download_process;
 				}
 				//If user is logged in
-				if (isLoggedIn(is_old_style)) {
+				if (isLoggedIn(isOldStyleValue)) {
 					log("Account is logged in");
 					//Compare site style
-					if (is_old_style) {
+					if (isOldStyleValue) {
 						//Old site event
 						log("Style: old style");
 						//Get href attribute of download button by class
@@ -94,7 +94,7 @@ function main() {
 
 				} else {
 					log("Account is not logged in");
-					launchModal("Automatic download can't start because user isn't logged in :(<br>Press F5 when you have logged in");
+					launchModal("User is not logged in! <br> You need to be logged in to download beatmaps.");
 				}
 
 			}
@@ -112,7 +112,7 @@ function main() {
 
 	//Check if user is logged in
 	let isLoggedIn = function (oldStyle) {
-		if (is_old_style) {
+		if (oldStyle) {
 			if (document.getElementsByClassName("mini-avatar").length > 0) {
 				return true;
 			} else {
@@ -172,10 +172,10 @@ function main() {
 		div.innerHTML = '<div id="myModal" class="modal">' +
 			'<div class="modal-content">' +
 			'<div class="modal-header">' +
-			'<h2>Koko-chan:</h2>' +
+			'<h2>osu! koko extension:</h2>' +
 			'</div>' +
 			'<div class="modal-body">' +
-			'<p>' + message + '</p>' +
+			'<p style="color: #121415;">' + message + '</p>' +
 			'</div>' +
 			'</div>' +
 			'</div>';
