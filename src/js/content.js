@@ -11,6 +11,7 @@ function main() {
 		download_video: null,
 		download_count: null,
 		download_count_val: null,
+		close_tab: null,
 		DEBUG: null
 	};
 
@@ -23,12 +24,14 @@ function main() {
 		DwnBmVi: false,
 		DwnCount: true,
 		DwnCountVal: 0,
+		CloseTab: true,
 		debug: false
 	}, async function (result) {
 		config.download_enabled = result.DwnEnbl;
 		config.download_video = result.DwnBmVi;
 		config.download_count = result.DwnCount;
 		config.download_count_val = result.DwnCountVal;
+		config.close_tab = result.CloseTab;
 		config.DEBUG = result.debug;
 
 		//Enable/disable console logs
@@ -91,6 +94,10 @@ function main() {
 					}
 					//Downloads counter function
 					increaseDowloadCounter(config.download_count);
+					if (config.close_tab) {
+						log("Removing tab");
+						chrome.runtime.sendMessage("osu_koko_remove_tab");
+					}
 
 				} else {
 					log("Account is not logged in");
