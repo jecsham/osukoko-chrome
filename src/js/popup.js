@@ -18,11 +18,13 @@ function save_options() {
   console.log('fired')
   let DwnEnbl = document.getElementById('DwnEnbl').checked;
   let DwnBmVi = document.getElementById('DwnBmVi').checked;
+  let CloseTab = document.getElementById('CloseTab').checked;
   let debug = document.getElementById('debug').checked;
 
   chrome.storage.sync.set({
     DwnEnbl: DwnEnbl,
     DwnBmVi: DwnBmVi,
+    CloseTab: CloseTab,
     debug: debug
   }, function () { });
 }
@@ -33,10 +35,12 @@ function restore_options() {
   chrome.storage.sync.get({
     DwnEnbl: true,
     DwnBmVi: false,
+    CloseTab: true,
     debug: false
   }, function (items) {
     document.getElementById('DwnEnbl').checked = items.DwnEnbl;
     document.getElementById('DwnBmVi').checked = items.DwnBmVi;
+    document.getElementById('CloseTab').checked = items.CloseTab;
     document.getElementById('debug').checked = items.debug;
   });
 }
@@ -67,6 +71,8 @@ document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('DwnEnbl').addEventListener('input',
   save_options);
 document.getElementById('DwnBmVi').addEventListener('input',
+  save_options);
+document.getElementById('CloseTab').addEventListener('input',
   save_options);
 document.getElementById('debug').addEventListener('input',
   save_options);
