@@ -3,7 +3,8 @@
     "entries": [
       "src",
       "LICENSE",
-      "manifest.json"
+      "manifest.json",
+      "background.js"
     ],
     "mode": "add",
     "outputEntry": "dist/osu-koko.zip"
