@@ -71,16 +71,16 @@ function main() {
 						//New site event
 						log("Style: new style");
 						while (true) {
-							el = document.getElementsByClassName("btn-osu-big btn-osu-big--beatmapset-header js-beatmapset-download-link");
+							el = document.getElementsByClassName("btn-osu-big btn-osu-big--beatmapset-header ");
 							log("Checkeing if url is ready...");
 							if (el[0] && el[0].href) {
 								break;
 							}
 							await sleep(10);
 						}
-						log(document.getElementsByClassName("btn-osu-big btn-osu-big--beatmapset-header js-beatmapset-download-link")[0].href)
+						log(document.getElementsByClassName("btn-osu-big btn-osu-big--beatmapset-header ")[0].href)
 						//Get href attribute of download button by class
-						dlLink = document.getElementsByClassName("btn-osu-big btn-osu-big--beatmapset-header js-beatmapset-download-link")[0].href;
+						dlLink = document.getElementsByClassName("btn-osu-big btn-osu-big--beatmapset-header ")[0].href;
 						if (config.download_video) {
 							window.open(dlLink);
 							log("Download start with video, according to the user configuration");
