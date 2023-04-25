@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/jecsham/osukoko-chrome#readme",
   "dependencies": {
-    "@ffflorian/jszip-cli": "^3.1.6"
+    "@ffflorian/jszip-cli": "^3.4.0"
   },
   "devDependencies": {
     "chrome-webstore-upload-cli": "^2.1.0"
